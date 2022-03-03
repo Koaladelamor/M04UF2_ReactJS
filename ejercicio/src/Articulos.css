@@ -1,0 +1,30 @@
+main {
+display:flex;
+
+}
+
+article{
+border:1px solid green;
+flex-grow:4;
+padding: 4px 8px 4px 8px;
+}
+
+aside{
+padding:18px;
+background-color:#eee;
+text-align:center;
+}
+
+#first-article-title{
+border-bottom:2px dashed green;
+}
+
+#tweets-title{
+margin:0;
+padding:8px 0 8px 0;
+font-size:16px;
+text-align:center;
+background-color:#eef;
+}
+
+

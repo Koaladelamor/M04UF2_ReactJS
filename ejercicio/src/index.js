@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import Cabecera from './Cabecera';
 import Menu from './Menu';
+import Articulos from './Articulos';
+import Piesito from './Piesito';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
   	<Cabecera />
+	<Menu />
+	<Articulos />
+	<Piesito />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,69 @@
+
+
+nav{
+background-color:#ddd;
+}
+
+nav ul{
+display:flex; /* estructura */
+padding:0;
+margin:0;
+}
+
+nav li{
+flex-grow:1; /* espaciado */
+list-style:none; /* punto,guión antes de cada elemento */
+border:1px solid #000;
+text-align:center;
+}
+
+nav a{
+display:block; /* cambiar a elemento en bloque */
+text-decoration:none; /* hacemos que el hiperlink no esté subrallado */
+padding: 4px 0 4px 0;
+}
+
+nav a:hover { /* hover=handover=cuando pasamos por encima, aplicamos color rojo */ 
+color:#fff; 
+background-color:#aaa;
+}
+
+nav:visited {
+color:#00ff00;
+}
+
+nav:visited:hover {
+color:#f00;
+}
+
+#home-link{
+border-bottom:2px solid #ff4bcb;
+}
+
+#home-link:hover{
+background-color:#ff4bcb;
+}
+
+#contact-link{
+border-bottom:2px solid #7DD095;
+}
+
+#contact-link:hover{
+background-color:#7DD095;
+}
+
+#cv-link{
+border-bottom:2px solid #6EBBED;
+}
+
+#cv-link:hover{
+background-color:#6EBBED;
+}
+
+#juego-link{
+border-bottom:2px solid #BF6EFF;
+}
+
+#juego-link:hover{
+background-color:#BF6EFF;
+}

@@ -3,7 +3,7 @@ import './Cabecera.css';
 function Cabecera(){
 	return(
 		<header class="estructura-cuerpo">
-		<h1>No mires arriba</h1>
+		<h1>Behind you</h1>
 		</header>
 	);
 }
