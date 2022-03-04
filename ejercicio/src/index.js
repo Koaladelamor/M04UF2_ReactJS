@@ -13,6 +13,7 @@ ReactDOM.render(
   	<Cabecera />
 	<Menu />
 	<Articulos />
+	<App />
 	<Piesito />
   </React.StrictMode>,
   document.getElementById('root')
