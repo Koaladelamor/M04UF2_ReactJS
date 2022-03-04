@@ -5,7 +5,7 @@ function Menu(){
 	return(
 		<nav>
 			<ul>
-				<MenuItem text="TEXTO EJEMPLO" url="/ejemplo" />
+				<MenuItem text="Ejemplo" url="/ejemplo" />
 
 				<li><a href="index.html" id="home-link">Portada</a></li>
 				<li><a href="contacto.html" id="contact-link" >Contacto</a></li>

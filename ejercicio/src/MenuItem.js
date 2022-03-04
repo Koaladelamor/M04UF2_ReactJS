@@ -1,9 +1,33 @@
+import React from 'react';
 
+class MenuItem extends React.Component
+{
+	constructor (props){
+		super(props);
 
-function MenuItem(props){
-	return(
-		<li><a href={props.url}>{props.text}</a></li>	
-	);
+		this.state = {
+			contador:0	
+		};
+		
+		setInterval( () => {
+			this.setState({
+				contador: this.state.contador+1	
+			});
+		}, 1000);
+	}
+
+	render (){
+		return(
+			<li><a href={this.props.url} onClick={
+				(e) => {
+					e.preventDefault();
+					this.setState({
+						contador: this.state.contador+1	
+					});
+				}
+			} >{this.props.text}</a> {this.state.contador}</li>	
+		);
+	}
 }
 
 export default MenuItem;
