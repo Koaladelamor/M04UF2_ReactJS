@@ -18,7 +18,7 @@ class TextForm extends React.Component{
 
 	render(){
 		return(
-			<input type="text" id="task-input" value={this.state.value} onChange={this.handleChange} />
+			<input type="text" id="task-input" value={this.props.value} onChange={this.handleChange} />
 		);
 	}
 }
