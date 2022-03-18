@@ -7,17 +7,32 @@ class TaskForm extends React.Component {
 
 	constructor(props){
 		super(props);
+		this.state = {
+			task: ""
+		};
 	}
 
-	handleSubmit(event) {
+	handleSubmit = (event) => {
 		event.preventDefault();
-		console.log("Hola");
+		this.props.addTask(this.state.task);
+
+		this.state.task = "";
+		this.setState({
+			task: this.state.task
+		});
 	}
+
+	handleChange = (event) => {
+		this.setState({
+			task: event.target.value
+		});
+	}
+
 
 	render() {
 		return(
 			<form onSubmit={this.handleSubmit}>
-				<TextForm />
+				<TextForm value={this.state.task} handleChange={this.handleChange} />
 				<Submit />
 			</form>
 		);

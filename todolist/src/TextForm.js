@@ -5,20 +5,20 @@ class TextForm extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			value: ""
+			value: props.value
 		};
 	}
 
 	handleChange = (event) => {
+		this.props.handleChange(event);
 		this.setState({
 			value: event.target.value
 		});
-			console.log(this.state.value);
 	}
 
 	render(){
 		return(
-			<input type="text" id="task-input" onChange={this.handleChange} />
+			<input type="text" id="task-input" value={this.state.value} onChange={this.handleChange} />
 		);
 	}
 }
