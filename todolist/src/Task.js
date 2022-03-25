@@ -1,9 +1,11 @@
 import RemoveTask from './RemoveTask.js';
+import ListItem from '@mui/material/ListItem';
+
 function Task(props){
 	return(
-		<li>
-			 {props.name} <RemoveTask /> 
-		</li>
+		<ListItem>
+			 {props.name} <RemoveTask id_task={props.id_task} removeTask={props.removeTask} /> 
+		</ListItem>
 	);
 }
 

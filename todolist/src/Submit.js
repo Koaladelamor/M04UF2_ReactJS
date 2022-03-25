@@ -1,8 +1,10 @@
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
 
 function Submit(){
 	return(
-		<input onClick={event => {
-		}} type="submit" value="Add"/>
+		<Button onClick={event => {
+		}} type="submit" value="Add"> + </Button>
 
 	);
 }

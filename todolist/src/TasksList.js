@@ -1,5 +1,6 @@
 import Task from './Task.js';
 import React from 'react';
+import List from '@mui/material/List';
 
 class TasksList extends React.Component{
 
@@ -19,12 +20,12 @@ class TasksList extends React.Component{
 		let tasks = [];
 
 		for(let i = 0; i < t.length; i++){
-			tasks.push(<Task name={t[i]} key={i} />);
+			tasks.push(<Task name={t[i]} key={i} id_task={i} removeTask={this.props.removeTask} />);
 		}
 		return(
-			<ul>
+			<List>
 				{tasks}
-			</ul>
+			</List>
 		);
 	}
 }

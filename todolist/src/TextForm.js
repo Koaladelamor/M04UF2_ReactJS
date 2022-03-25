@@ -1,4 +1,5 @@
 import React from 'react';
+import TextField from '@mui/material/TextField';
 
 class TextForm extends React.Component{
 	
@@ -18,7 +19,7 @@ class TextForm extends React.Component{
 
 	render(){
 		return(
-			<input type="text" id="task-input" value={this.props.value} onChange={this.handleChange} />
+			<TextField id="outlined-required" label="New Task" defaultValue={this.props.value} onChange={this.handleChange} />
 		);
 	}
 }

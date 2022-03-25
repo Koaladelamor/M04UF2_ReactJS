@@ -1,7 +1,9 @@
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-function RemoveTask(){
+function RemoveTask(props){
 	return(
-		<button> DELETE </button>
+		<Button startIcon={<DeleteIcon />} variant="contained" onClick={function(event){props.removeTask(props.id_task);}}> DELETE </Button>
 	);
 }
 
