@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Submit from './Submit.js';
 import TextForm from './TextForm.js';
 
