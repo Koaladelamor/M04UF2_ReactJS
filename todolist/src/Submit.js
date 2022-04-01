@@ -16,7 +16,7 @@ class Submit extends React.Component {
 		return(
 			
 			<Tooltip title="Add">
-				<Button variant="contained" > 
+				<Button variant="contained" type="submit" > 
 					{<AddIcon />} 
 				</Button>
 			</Tooltip>

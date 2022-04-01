@@ -11,7 +11,25 @@ class App extends React.Component {
 		this.state = {
 			tasks: []	
 		};
+   		fetch("http://10.40.1.105:3030").then(function(res){
+    		return res.json();
+   	 	}).then(function(res){
+    	    console.log(res);
+	    });
+
 	}
+
+	setTasks = data => {
+		let tasks = [];
+		for(let i = 0; i < data.length; i++){
+			tasks.push(data[i].task);
+		}
+
+		this.state.tasks = data;
+		this.setState({
+			tasks: this.state.tasks
+		});
+	};
 
 	addTask = task => {
 		this.state.tasks.push(task);

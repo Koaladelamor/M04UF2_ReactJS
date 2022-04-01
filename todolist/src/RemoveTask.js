@@ -58,7 +58,7 @@ class RemoveTask extends React.Component{
           		<Button onClick={this.handleClose} >
 					Cancel 
 				</Button>
-         		<Button onClick={this.handleDelete} >
+         		<Button variant="contained" color="error" onClick={this.handleDelete} >
          			Delete
          		</Button>
         	</DialogActions>
