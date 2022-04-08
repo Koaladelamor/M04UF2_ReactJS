@@ -11,21 +11,20 @@ class App extends React.Component {
 		this.state = {
 			tasks: []	
 		};
-   		fetch("http://10.40.1.105:3030").then(function(res){
-    		return res.json();
-   	 	}).then(function(res){
-    	    console.log(res);
-	    });
+
 
 	}
 
-	setTasks = data => {
-		let tasks = [];
-		for(let i = 0; i < data.length; i++){
-			tasks.push(data[i].task);
-		}
+	componentWillMount(){
+   		fetch("http://10.40.1.105:3030/")
+			.then(res => res.json())
+			.then(data => this.setTasks(data));
+	}
 
-		this.state.tasks = data;
+	setTasks = data => {
+		for(let i = 0; i < data.length; i++){
+			this.state.tasks.push(data[i].task);
+		}
 		this.setState({
 			tasks: this.state.tasks
 		});
@@ -36,6 +35,14 @@ class App extends React.Component {
 		this.setState({
 			tasks: this.state.tasks
 		});	
+
+
+   		fetch("http://10.40.1.105:3030", {
+			method: 'POST',
+			body: task
+			//body: '{"task":"'+task+'"}'
+		});
+
 	}
 
 	removeTask = id_task => {

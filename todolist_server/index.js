@@ -27,6 +27,20 @@ http.createServer(function(req, res){
     	'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'	
 	});
 
+	if(req.method == "POST"){
+		let task = "";
+		req.on('data', function(chunk){
+			task += chunk;
+		});
+
+		req.on('end', function(){
+			console.log(task)
+			db.collection("tasks").insertOne({'task': task});
+		});
+
+		return;
+	}
+
 	let col_data = db.collection("tasks").find();
 	col_data.toArray(function(error, data){
 		let string = JSON.stringify(data);
