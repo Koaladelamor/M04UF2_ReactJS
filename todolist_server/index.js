@@ -29,15 +29,36 @@ http.createServer(function(req, res){
 
 	if(req.method == "POST"){
 		let task = "";
+		let obj_id = "";
 		req.on('data', function(chunk){
 			task += chunk;
 		});
 
 		req.on('end', function(){
-			console.log(task)
-			db.collection("tasks").insertOne({'task': task});
+			console.log(task);
+			db.collection("tasks")
+				.insertOne({'task': task})
+				.then(res => {
+					obj_id = res.insertedId;
+					let stringId = obj_id.toString();
+					res.write(stringId);
+					res.end();
+				});
+
 		});
 
+		return;
+	}
+
+	if(req.method == "GET") {
+		let objId = "";
+		req.on('data', function(chunk){
+			objId += chunk;
+		});
+
+		req.on('end', function(){
+			console.log(objId);
+		});
 		return;
 	}
 
