@@ -6,6 +6,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import React from 'react';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import "./RemoveTask.css";
 
 class RemoveTask extends React.Component{
 	
@@ -38,7 +39,7 @@ class RemoveTask extends React.Component{
 	render(){
 
 	return(
-	<div>
+	<div className="RemoveIcon">
 		<Button startIcon={<DeleteIcon />} variant="contained" 
 		onClick={this.handleClickOpen}> 
 			DELETE 		

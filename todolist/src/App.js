@@ -1,4 +1,4 @@
-//import './App.css';
+import './App.css';
 import Title from './Title.js';
 import TaskForm from './TaskForm.js';
 import TasksList from './TasksList';
@@ -42,18 +42,28 @@ class App extends React.Component {
 
    		fetch("http://192.168.1.50:3030", {
 			method: 'POST',
-			body: task
-			//body: '{"task":"'+task+'"}'
+			body: '{"task":"'+task+'"}'
+		}).then(res => res.json())
+		.then(data => {
+			console.log("RECEIVING ID ");
+			this.state.obj_id.push(data);
+			this.setState({
+				obj_id: this.state.obj_id
+			});	
+				
 		});
+		
 
 	}
 
 	removeTask = id_task => {
 
    		fetch("http://192.168.1.50:3030", {
-			method: 'GET',
-			body: id_task
+			method: 'POST',
+			body: '{"_id" : "' + this.state.obj_id[id_task] + '", "delete" : true}',
+			delete : "true"
 		});
+
 
 		this.state.tasks.splice(id_task, 1);
 		this.setState({

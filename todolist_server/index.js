@@ -3,6 +3,7 @@
 let fs = require("fs");
 let http = require("http");
 let mongo_client = require("mongodb").MongoClient;
+let ObjectId = require("mongodb").ObjectId;
 let url = "mongodb://localhost/";
 let db;
 
@@ -35,32 +36,32 @@ http.createServer(function(req, res){
 		});
 
 		req.on('end', function(){
-			console.log(task);
-			db.collection("tasks")
-				.insertOne({'task': task})
-				.then(res => {
-					obj_id = res.insertedId;
-					let stringId = obj_id.toString();
-					res.write(stringId);
-					res.end();
-				});
+			let data = JSON.parse(task);
+			if(data.delete == undefined){
+				console.log("INSERTANDO");
+				db.collection("tasks")
+					.insertOne({'task': data.task})
+					.then(res => {
+						obj_id = res.insertedId;
+						console.log(obj_id);
+					});
+				/*let stringId = obj_id.toString();
+				console.log(stringId);*/
+				res.write(obj_id);
+				res.end();
+			}
+			else {
+				console.log("BORRANDO");
+				let id = new ObjectId(data._id);
+				console.log(id);
+				db.collection("tasks").deleteOne({"_id":id});
+			}
 
 		});
 
 		return;
 	}
 
-	if(req.method == "GET") {
-		let objId = "";
-		req.on('data', function(chunk){
-			objId += chunk;
-		});
-
-		req.on('end', function(){
-			console.log(objId);
-		});
-		return;
-	}
 
 	let col_data = db.collection("tasks").find();
 	col_data.toArray(function(error, data){
